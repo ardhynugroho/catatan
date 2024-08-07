@@ -1,21 +1,45 @@
 # Catatan f5-academy-class-4
+# F5 Distributed Cloud: API Discovery & Protection
 
-## Lab-1 Task-1: Traffic Generator
+## Lab-1 
+
+### Task-1: Traffic Generator
 
 ```
 while true; do 
   for breed in Persian Siamese Rusian Blue; do 
-    curl http://cute-walrus.lab-sec.f5demos.com/api/CatLookup/GetByBreed?breed=$breed; 
+    curl http://__YOUR_NAMESPACE__.lab-sec.f5demos.com/api/CatLookup/GetByBreed?breed=$breed; 
     sleep 1; 
   done; 
 done
 ```
 
-## Lab-1 Task-4: Generate More API Violations
+### Task-4: Generate More API Violations
 
 ```
 while true; do 
   sleep 10; 
-  curl http://_YOUR_NAMESPACE_.lab-sec.f5demos.com/api/CatLookup/GetByAge?age=five; 
+  curl http://__YOUR_NAMESPACE__.lab-sec.f5demos.com/api/CatLookup/GetByAge?age=five; 
+done
+```
+## Lab-2 
+
+### Task-1: API Protection Rules
+
+```
+while true; do 
+  sleep 3; 
+  curl http://__YOUR_NAMESPACE__.lab-sec.f5demos.com/api/CatLookup/GetAllCats; 
+done
+```
+
+### Task-2: API Rate Limiting
+
+```
+while true; do
+  for i in $(seq 5); do
+    curl http://__YOUR_NAMESPACE__.lab-sec.f5demos.com/api/DogLookup/GetAllDogs -v; 
+  done; 
+  sleep 1m; 
 done
 ```
